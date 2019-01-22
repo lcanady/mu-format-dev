@@ -15,13 +15,18 @@ class Modal extends Component{
 
   render() {
     return (
-      <div id='modal'>
+      <div id='modal' onClick={this.close}>
         <div className='modalContent'>
-          <div className='message'>
-            <h1>{this.props.title}</h1>
-            <p>{this.props.message}</p>
+          <div className='modalHead'>
+            <h1>{this.props.title || 'Error Message!'}</h1>
+            <i className="fas fa-exclamation-circle"></i>
           </div>
-          <span className='close' onClick={this.close}>&times;</span>
+          <div className='modalBody'>
+            <div className='message'>
+              <p>{this.props.message || 'Uh oh! Something went wrong.'}</p>
+            </div>
+            <button className='button' onClick={this.close}>{this.props.button || 'Dismiss'}</button>
+          </div>
         </div>
       </div>
     )

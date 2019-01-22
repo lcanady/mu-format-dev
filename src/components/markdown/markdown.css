@@ -1,0 +1,46 @@
+.markdownContainer {
+  background-color: white;
+  border-radius: 3px;
+  padding: 30px;
+  font-size: 14px;
+}
+
+.markdownContainer h1 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 10px; 
+}
+
+.markdownContainer h3{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.markdownContainer h4 {
+  font-size: 16px;
+  color: #A0A0A0;
+  font-weight:bold;
+  padding-bottom:10px;
+}
+
+.markdownContainer p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 18px;
+
+}
+
+.markdownContainer pre {
+  background-color: #F7F7F7;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 3px;
+  overflow-x: auto;
+}
+
+.markdownContainer code {
+  background-color: #F7F7F7;
+  font-family: 'Source Code Pro', monospace;
+  line-height: 18px;
+}
