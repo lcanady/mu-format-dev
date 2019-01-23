@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from './settings-work-tool.svg';
 import github from './github-icon.svg'
+import './navigation.css'
 
 const Navigation = () => {
   return (
@@ -19,4 +20,14 @@ const Navigation = () => {
   )
 }
 
+const Links = () => (
+  <nav id='links'>
+    <ul>
+      <li>How It Works</li>
+      <li>Contributing</li>
+      <li>Other Projects</li>
+    </ul>
+  </nav>
+)
+export {Links}
 export default Navigation

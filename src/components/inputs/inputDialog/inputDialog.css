@@ -1,0 +1,80 @@
+#inputDialog {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  
+}
+.greyedInput {
+  height: 100%;
+  position: relative;
+  background-color:#E5E5E5;
+  width: 200px;
+  color: #A8AAAB;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px
+}
+
+.greyedInput select {
+  background-color: #E5E5E5;
+  outline: 0px;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  color: #A8AAAB;
+}
+
+  
+  
+
+#inputBox {
+  width: 500px;
+  background-color: white;
+  color: #A8AAAB;
+  font-family: 'source Code Pro';
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 20px;
+  border: none;
+}
+
+#inputBox:disabled {
+  background-color: #EEEEEE;
+  border-left-style: solid;
+  border-left-color: #A8AAAB;
+  border-left-width: 1px;
+}
+
+#inputBox {
+  outline: 0px;
+}
+
+#inputButton {
+  width:130px;
+  background-color: #05A4F7;
+  border-style: none;
+  color: white;
+  font-size: 16px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+#inputButton:active, #saveButton:active,
+#inputButton:target, #saveBtutton:target {
+  background-color: #007EEE;
+  outline: 0px;
+}
+
+#inputButton:disabled {
+  background-color:#E5E5E5;
+  color: #A8AAAB;
+}
+
+#inputButton:focus, #saveBtutton:focus {
+  outline: 0px;
+}

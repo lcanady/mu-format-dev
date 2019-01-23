@@ -7,64 +7,12 @@ body {
   font: normal;
 }
 
-#mast {
-  position: fixed;
-  height: 50px;
-  color: #fff;
-  background-color: #05A4F7;
-  width: 100%;
-  z-index: 1;
-}
-
-.nav-container {
-  max-width: 1440px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-}
-
-#mast p {
-  flex-grow: 1;
-  font-size: 14px;
-}
-
-.logo-text {
-  font-weight: bold;
-  font-size: 20px;
-  padding: 0px 10px;
-}
-
-.logo {
-  padding-left:40px;
-}
-
-.github {
-  padding-right:40px;
-}
-
 #wrapper {
   max-width: 1440px;
   width: 100%;
   box-sizing: border-box;
   padding: 0px 40px;
 }
-
-#links ul{
-  padding-top: 75px;
-  padding-bottom: 30px;
-  display: flex;
-}
-
-#links li {
-  padding-right:20px;
-  font-size: 16px;
-}
-
-#links li a, #links li a:hover, #links li a:visited,
-#links li a:active {
-  color: #5E5E5E;
-  text-decoration: none;
-} 
 
 
 #inputWrapper {
@@ -74,106 +22,13 @@ body {
   align-items: center;
 }
 
-#inputDialog {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  
-}
-
 .inputs {
 
   display: flex;
   justify-content: space-between
 }
 
-.greyedInput {
-  height: 100%;
-  background-color:#E5E5E5;
-  width: 120px;
-  color: #A8AAAB;
-  display: flex;
-  box-sizing: border-box;
-  padding: 0 15px;
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px
-}
 
-.greyedInput select {
-  background-color: #E5E5E5;
-  outline: 0px;
-  font-size: 14px;
-  width: 100%;
-  border: none;
-  font-weight: bold;
-  color: #A8AAAB;
-}
-
-
-
-#inputBox {
-  width: 500px;
-  background-color: white;
-  color: #A8AAAB;
-  font-family: 'source Code Pro';
-  overflow: hidden;
-  box-sizing: border-box;
-  padding-top: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
-  white-space: nowrap;
-}
-
-#inputBox br {display:none;}
-#inputOut br {display:none;}
-
-#inputBox.disabled {
-  background-color: #EEEEEE;
-  border-left-style: solid;
-  border-left-color: #A8AAAB;
-  border-left-width: 1px;
-}
-
-#inputBox {
-  outline: 0px;
-}
-
-#inputButton {
-  width:130px;
-  background-color: #05A4F7;
-  border-style: none;
-  color: white;
-  font-size: 16px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-#inputButton:active, #saveButton:active,
-#inputButton:target, #saveBtutton:target {
-  background-color: #007EEE;
-  outline: 0px;
-}
-
-#inputButton:focus, #saveBtutton:focus {
-  outline: 0px;
-}
-
-#inputText {
-  width:100%;
-  height:350px;
-  margin-top: 10px;
-  box-sizing: border-box;
-  padding: 15px;
-  overflow: hidden;
-  border-radius: 3px;
-  background-color: white;
-  font-family: 'Source Code Pro', monospace;
-  font-size: 12px;
-  outline: 0px;
-  overflow-y: auto; 
-}
 
 
 

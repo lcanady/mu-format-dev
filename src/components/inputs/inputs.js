@@ -6,25 +6,22 @@ class Inputs extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      inputType:'',
-      inputFile:'',
-      inputText:'',
+
       outputText:'',
       outputFileName: ''
     }
-    this._updateState = this._updateState.bind(this)
+    this.updateOutput = this.updateOutput.bind(this)
   }
 
-  _updateState(obj) {
+  updateOutput(obj) {
     this.setState(obj)
   }
   
-
   render() {
     return(
       <div className='inputs'>
         <Inputwindow  
-          update={this._updateState}
+          updateOutput={this.updateOutput}
         />
         <Outputwindow 
           output={this.state.outputText}

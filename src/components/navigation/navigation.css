@@ -1,0 +1,49 @@
+#mast {
+  position: fixed;
+  height: 50px;
+  color: #fff;
+  background-color: #05A4F7;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-container {
+  max-width: 1440px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+#mast p {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+.logo {
+  padding-left:40px;
+}
+
+.github {
+  padding-right:40px;
+}
+
+#links {
+  color: #5E5E5E;
+}
+
+#links ul{
+  padding-top: 75px;
+  padding-bottom: 30px;
+  display: flex;
+}
+
+#links li {
+  padding-right:20px;
+  font-size: 16px;
+}

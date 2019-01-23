@@ -1,60 +1,93 @@
 import React, {Component} from 'react'
 import {formatApi} from '../../../utilities'
+import './inputDialog.css'
 
 class InputDialog extends Component {
   constructor (props) {
     super(props)
+    this.state = {
+      inputButton:'Open',
+      modalTitle: '',
+      modalMessage: ''
+    }
+
+    this.changeFile = this.changeFile.bind(this)
+    this.uploadButton = this.uploadButton.bind(this)
+    
+    this.openDialogClick = this.openDialogClick.bind(this)
+
+  }
+
+  componentDidMount(){
+    document.getElementById('inputButton').disabled = true;
   }
 
   changeFile(e) {
+    const inputBox = document.getElementById('inputBox')
+    const inputButton = document.getElementById('inputButton')
     let {value} = e.target
     switch (value) {
       case 'github':
         this.setState({inputButton: 'Load'})
-
+        inputButton.disabled = false;
+        inputBox.value = 'https://github.com/'
+        inputBox.disabled = false;
+        break
+      case 'file':
+        inputButton.disabled = false;
+        this.setState({inputButton: 'Open'})
+        inputBox.value = ''
+        inputBox.disabled = true;
         break
       default:
+        inputButton.disabled = true;
         this.setState({inputButton: 'Open'})
-        this.update({inputType:'file'})
+        inputBox.value = ''
+        inputBox.disabled = false;
     }
   }
   
-  inputChange(e){
-    this.update({inputFile: e.target.innerText}) 
-
-  }
-
+  /** Handler for when 'load'/'open' button is clicked. */
   async uploadButton() {
-    this.update({outputText:'', outputFileName:''})
-    document.getElementById('inputText').innerHTML = ''
+    const inputBox = document.getElementById('inputBox')
+    this.props.update({inputText:''})
+    
     switch (this.state.inputButton) {
+      
+      // If 'file' is selected, trigger the open file dialog box.
       case 'Open':
-        document.getElementById('inputBox').innerHTML = ''
+        inputBox.value = ''
         document.getElementById('file').click();
         break
+
+      // If Github is selected, grab the archive and process.
       case 'Load':
-      
-        const rawUrl = document.getElementById('inputBox').innerHTML
-        const match = rawUrl.match(/github.com\/(.*)\/(.*)/)
+
+        // Make sure the url is valid 
+        const match = inputBox.value.match(/github.com\/(.*)\/(.*)/)
 
         if (match) {
           const url = `github:${match[1]}/${match[2]}`
+          
+          // Call the Mu-Format API. 
           const content = await formatApi({url})
-          const inputText = document.getElementById('inputText')
+          
           switch (true) {
+            // If content has documents and it's total length of entries is
+            // more than zero as well.
             case content.documents && content.documents.length > 0:
-              this.update({
+              // update parent state.
+              this.props.update({
                 inputText: content.documents[0].raw,
                 outputText: content.documents[0].contents
               })
-              inputText.innerHTML = content.documents[0].raw
-
-              if (match){
-                const title = match[1].toLowerCase() + '.' + match[2].toLowerCase() + '.txt'
-                document.getElementById('outputBox').innerHTML= title
-              }
+              
+              // Update the title.
+              const title = match[1].toLowerCase() + '.' + match[2].toLowerCase() + '.txt'
+              document.getElementById('outputBox').innerHTML= title
 
               break
+            // A Message was sent in place of a document.
             case content.title:
               this.setState({
                 modalTitle:content.title,
@@ -65,7 +98,7 @@ class InputDialog extends Component {
             default:
               this.setState({
                 modalTitle:'Uh oh!',
-                modalMessage: 'Something went wrong!'
+                modalMessage: 'Something went wrong while talking to the API!'
               })
               document.getElementById('modal').style.display = 'block'
           }
@@ -77,19 +110,23 @@ class InputDialog extends Component {
           document.getElementById('modal').style.display='block'
 
         }
+        
     }
   }
 
   openDialogClick(){
     const selectedFile = document.getElementById('file').files[0];
 
+    // Create a new instance of the file reader
     const reader = new FileReader();
 
-    reader.onload = function(e) {
+    // Once the file is read...
+    reader.onload = (e) => {
+
       const text = reader.result
-      document.getElementById('inputText').innerHTML = text
-      const fileName = document.getElementById('file').files[0].name
-      document.getElementById('inputBox').innerHTML = fileName
+      // Update parent state.
+      this.props.update({inputText:text})
+      document.getElementById('inputBox').value = selectedFile.name
     }
 
     if (selectedFile) {
@@ -103,21 +140,17 @@ class InputDialog extends Component {
     return (
       <div id='inputDialog'>     
           <div className='greyedInput'>
-            <select 
-              id='fileType'
-              onChange={this.changeFile}
-            >
-              <option value='github' selected>Github</option>
+            <select id='fileType' onChange={this.changeFile}>
+              <option value ='' defaultValue >Upload Method</option>
+              <option value='github'>Github</option>
               <option value='file'>File</option>
             </select>
           </div>
-          <div 
+          <input 
             id='inputBox' 
-            contentEditable="true"
             onInput={this.inputChange}
           >
-            https://github.com/
-          </div>
+          </input>
           <input 
             type="file"
             onChange={this.openDialogClick} 
@@ -125,7 +158,12 @@ class InputDialog extends Component {
             ref="fileUploader" 
             style={{display: "none"}}
           />
-          <button id='inputButton' onClick={this.inputButton}>{this.state.inputButton}</button>
+          <button 
+            id='inputButton' 
+            onClick={this.uploadButton}
+          >
+            {this.state.inputButton}
+          </button>
         </div>
     )
   }
