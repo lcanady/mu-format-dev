@@ -33,7 +33,7 @@ class InputWindow extends Component{
     const txt = document.getElementById('inputText').innerText
 
     const content = await formatApi({txt})
-Z    if(content.documents){
+    if(content.documents){
       this.props.updateOutput({
         outputText: content.documents[0].contents
       })
