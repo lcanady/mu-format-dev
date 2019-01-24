@@ -16,7 +16,7 @@ class Inputs extends Component {
   updateOutput(obj) {
     this.setState(obj)
   }
-  
+
   render() {
     return(
       <div className='inputs'>
@@ -26,6 +26,7 @@ class Inputs extends Component {
         <Outputwindow 
           output={this.state.outputText}
           outFile={this.state.outputFileName}
+          updateOutput={this.state.updateOutput}
         />
       </div>
     )

@@ -1,7 +1,7 @@
 .markdownContainer {
   background-color: white;
   border-radius: 3px;
-  padding: 30px;
+  padding: 30px 30px;
   font-size: 14px;
 }
 
@@ -39,8 +39,14 @@
   overflow-x: auto;
 }
 
+.markdownContainer pre code {
+  color: #5E5E5E;
+  font-weight: normal;
+}
+
 .markdownContainer code {
-  background-color: #F7F7F7;
+  color: #A6514D;
   font-family: 'Source Code Pro', monospace;
+  font-weight: bold;
   line-height: 18px;
 }

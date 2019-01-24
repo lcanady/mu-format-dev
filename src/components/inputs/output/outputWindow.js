@@ -1,21 +1,52 @@
-import React from 'react'
+import React, {Component} from 'react'
+import './outputWindow.css'
+import TextBox from '../textbox/textbox'
 
-const outputWindow = (props) => {
-  
+
+class OutputWindow extends Component {
+  constructor(props){
+    super(props)
+
+    this.outputBox = React.createRef()
+  }
+
+  saveClickHandler = () => {
+    console.log(this.outputBox)
+    document.getElementById('save').click()
+  } 
 
 
-  return (
-    <div id='outputWrapper'>
-      <div id='outputDialog'>     
-        <div id='outputBox' contentEditable = 'true'>{props.outFile}</div>
-        <button id='saveButton'>Save</button>
+  render(){
+
+    const title = document.getElementById('outputBox') ? 
+      document.getElementById('outputBox').value : 
+      'installer.mu.txt';
+
+    return (
+      <div id='outputWrapper'>
+        <div id='outputDialog'>     
+          <input id='outputBox'></input>
+          <button 
+            id='saveButton'
+            onClick={this.saveClickHandler}
+          >
+            Save
+          </button>
+          
+          
+        </div>
+        <a
+            id='save'
+            download={title}
+            href={"data:text/html," + this.props.output}></a>
+        <TextBox id={'outputText'} contentEditable={false}>{this.props.output || ' '}</TextBox>
+        <div className='inputButtons'>
+          <button id='optionsButton' style={{width:'250px'}} disabled={true}>Options</button>
+          <button id='formatButton' style={{width:'250px'}} disabled={true}>Log</button>
+        </div>
       </div>
-      <div id='outputText' style={{whiteSpace:'pre-wrap'}}>{props.output}</div>
-      <button id='formatButton'>Log</button>
-    </div>
-  )
-
-
+    )
+  }
 }
 
-export default outputWindow
+export default OutputWindow
