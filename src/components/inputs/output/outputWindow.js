@@ -15,7 +15,7 @@ class OutputWindow extends Component {
     const outputText = document.getElementById('outputText')
     const outputBox = document.getElementById('outputBox')
     
-    var blob = new Blob([outputText.value], {type: "text/plain;charset=utf-8"})
+    var blob = new Blob([outputText.innerText], {type: "text/plain;charset=utf-8"})
     await save(blob, outputBox.value)
     
   } 
