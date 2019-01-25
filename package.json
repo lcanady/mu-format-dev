@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "mu-format": "github:lcanady/mu-format",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-markdown": "^4.0.6",
