@@ -12,10 +12,7 @@ const bodyStyles = {
 }
 
 class ErrorModal extends Component{
-  constructor(props) {
-    super(props)
 
-  }
 
   clickHandler = () => {
     document.getElementById(this.props.id).style.display='none'

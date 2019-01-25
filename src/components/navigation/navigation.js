@@ -14,7 +14,10 @@ const Navigation = () => {
           <span className='logo-text'>Mu-Format </span> 
           A JavaScript Library for converting MUSHCode into something quotable.
         </p>
-        <a href={'https://github.com/lcanady/mu-format'} target='_blank'>
+        <a 
+          href={'https://github.com/lcanady/mu-format'} target='_blank' 
+          rel="noopener noreferrer"
+        >
           <img src={github} className='github' alt='Github' />
         </a>
       </div>

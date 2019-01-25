@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import save from 'file-saver'
 import './outputWindow.css'
 import TextBox from '../textbox/textbox'
 
@@ -10,18 +11,17 @@ class OutputWindow extends Component {
     this.outputBox = React.createRef()
   }
 
-  saveClickHandler = () => {
-    console.log(this.outputBox)
-    document.getElementById('save').click()
+  saveClickHandler = async () => {
+    const outputText = document.getElementById('outputText')
+    const outputBox = document.getElementById('outputBox')
+    
+    var blob = new Blob([outputText.value], {type: "text/plain;charset=utf-8"})
+    await save(blob, outputBox.value)
+    
   } 
 
 
   render(){
-
-    const title = document.getElementById('outputBox') ? 
-      document.getElementById('outputBox').value : 
-      'installer.mu.txt';
-
     return (
       <div id='outputWrapper'>
         <div id='outputDialog'>     
@@ -35,10 +35,6 @@ class OutputWindow extends Component {
           
           
         </div>
-        <a
-            id='save'
-            download={title}
-            href={"data:text/html," + this.props.output} display={false}></a>
         <TextBox id={'outputText'} contentEditable={false}>{this.props.output}</TextBox>
         <div className='inputButtons'>
           <button id='optionsButton' style={{width:'45%'}} disabled={true}>Options</button>

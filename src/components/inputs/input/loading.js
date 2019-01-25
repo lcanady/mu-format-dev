@@ -11,9 +11,6 @@ const modalStyles = {
 }
 
 class Loading extends Component {
-  constructor(){
-    super()
-  }
 
   render() {
     return (
