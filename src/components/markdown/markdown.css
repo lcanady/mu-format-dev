@@ -3,22 +3,29 @@
   border-radius: 3px;
   padding: 30px 30px;
   font-size: 14px;
+  line-height: 18px;
 }
 
 .markdownContainer h1 {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   padding-bottom: 10px; 
 }
 
-.markdownContainer h3{
+.markdownContainer h2 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.markdownContainer h3 {
   font-size: 18px;
   font-weight: bold;
   padding: 10px 0;
 }
 
 .markdownContainer h4 {
-  font-size: 16px;
+  font-size: 14px;
   color: #A0A0A0;
   font-weight:bold;
   padding-bottom:10px;
@@ -27,16 +34,23 @@
 .markdownContainer p {
   padding-top: 5px;
   padding-bottom: 5px;
-  line-height: 18px;
 
 }
 
 .markdownContainer pre {
   background-color: #F7F7F7;
   padding: 20px;
-  margin: 10px 0;
+  margin: 20px 0;
   border-radius: 3px;
   overflow-x: auto;
+}
+
+.markdownContainer pre::-webkit-scrollbar {
+  height: 0.7em;
+  background: transparent;
+}
+.markdownContainer pre::-webkit-scrollbar-thumb {
+  background: #E5E5E5
 }
 
 .markdownContainer pre code {
@@ -49,4 +63,22 @@
   font-family: 'Source Code Pro', monospace;
   font-weight: bold;
   line-height: 18px;
+}
+
+.markdownContainer strong {
+  font-weight: bold;
+}
+
+.markdownContainer ul {
+  margin: 0 20px;
+  padding: 15px 0 !important;
+  display: block !important;
+  list-style-type: disc;
+} 
+
+.markdownContainer ul li {
+  font-size: 14px !important;
+  cursor: default !important;
+  padding: 3px;
+
 }

@@ -38,11 +38,11 @@ class OutputWindow extends Component {
         <a
             id='save'
             download={title}
-            href={"data:text/html," + this.props.output}></a>
-        <TextBox id={'outputText'} contentEditable={false}>{this.props.output || ' '}</TextBox>
+            href={"data:text/html," + this.props.output} display={false}></a>
+        <TextBox id={'outputText'} contentEditable={false}>{this.props.output}</TextBox>
         <div className='inputButtons'>
-          <button id='optionsButton' style={{width:'250px'}} disabled={true}>Options</button>
-          <button id='formatButton' style={{width:'250px'}} disabled={true}>Log</button>
+          <button id='optionsButton' style={{width:'45%'}} disabled={true}>Options</button>
+          <button id='formatButton' style={{width:'45%'}} disabled={true}>Log</button>
         </div>
       </div>
     )

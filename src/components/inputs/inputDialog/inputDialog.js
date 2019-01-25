@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {formatApi} from '../../../utilities'
+import ErrorModal from '../../modal/errormodal'
 import './inputDialog.css'
 
 class InputDialog extends Component {
@@ -25,22 +26,26 @@ class InputDialog extends Component {
   changeFile(e) {
     const inputBox = document.getElementById('inputBox')
     const inputButton = document.getElementById('inputButton')
+    const inputType = document.getElementById('inputType')
     let {value} = e.target
     switch (value) {
       case 'github':
         this.setState({inputButton: 'Load'})
+        inputType.classList.remove('greyedInput')
         inputButton.disabled = false;
         inputBox.value = 'https://github.com/'
         inputBox.disabled = false;
         break
       case 'file':
         inputButton.disabled = false;
+        inputType.classList.remove('greyedInput')
         this.setState({inputButton: 'Open'})
         inputBox.value = ''
         inputBox.disabled = true;
         break
       default:
         inputButton.disabled = true;
+        inputType.classList.add('greyedInput')
         this.setState({inputButton: 'Open'})
         inputBox.value = ''
         inputBox.disabled = false;
@@ -69,9 +74,11 @@ class InputDialog extends Component {
         if (match) {
           const url = `github:${match[1]}/${match[2]}`
           
-          // Call the Mu-Format API. 
+          // Call the Mu-Format API.
+          document.getElementById('loading').style.display='block' 
           const content = await formatApi({url})
-          
+          document.getElementById('loading').style.display='none'
+
           switch (true) {
             // If content has documents and it's total length of entries is
             // more than zero as well.
@@ -84,7 +91,7 @@ class InputDialog extends Component {
               
               // Update the title.
               const title = match[1].toLowerCase() + '.' + match[2].toLowerCase() + '.txt'
-              document.getElementById('outputBox').innerHTML= title
+              document.getElementById('outputBox').value= title
 
               break
             // A Message was sent in place of a document.
@@ -93,21 +100,21 @@ class InputDialog extends Component {
                 modalTitle:content.title,
                 modalMessage:content.message
               })
-              document.getElementById('modal').style.display = 'block'
+              document.getElementById('apiModal').style.display = 'block'
               break
             default:
               this.setState({
                 modalTitle:'Uh oh!',
                 modalMessage: 'Something went wrong while talking to the API!'
               })
-              document.getElementById('modal').style.display = 'block'
+              document.getElementById('apiModal').style.display = 'block'
           }
         } else {
           this.setState({
             modalTitle: 'Error!',
             modalMessage: 'You must enter a user name and repo.'
           })
-          document.getElementById('modal').style.display='block'
+          document.getElementById('apiModal').style.display='block'
 
         }
         
@@ -139,7 +146,7 @@ class InputDialog extends Component {
   render() {
     return (
       <div id='inputDialog'>     
-          <div className='greyedInput'>
+          <div id ='inputType' className='blueInput greyedInput'>
             <select id='fileType' onChange={this.changeFile}>
               <option value ='' defaultValue >Upload Method</option>
               <option value='github'>Github</option>
@@ -164,6 +171,9 @@ class InputDialog extends Component {
           >
             {this.state.inputButton}
           </button>
+          <ErrorModal title={this.state.modalTitle} id={'apiModal'}>
+            {this.state.modalMessage}
+          </ErrorModal>
         </div>
     )
   }

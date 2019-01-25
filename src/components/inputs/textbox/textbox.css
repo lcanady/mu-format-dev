@@ -6,11 +6,18 @@
   margin-top:15px;
   box-sizing: border-box;
   padding: 15px;
-  overflow: hidden;
   border-radius: 3px;
   background-color: white;
   font-family: 'Source Code Pro', monospace;
   font-size: 12px;
   outline: 0px;
   overflow-y: auto; 
+}
+
+.textBox::-webkit-scrollbar {
+  width: 0.7em;
+  background: transparent;
+}
+.textBox::-webkit-scrollbar-thumb {
+  background: #E5E5E5;
 }

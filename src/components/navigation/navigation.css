@@ -1,36 +1,29 @@
 #mast {
-  position: fixed;
+  position:fixed;
   height: 50px;
   color: #fff;
   background-color: #05A4F7;
-  width: 100%;
-  z-index: 1;
+  width: 95%;
 }
 
 .nav-container {
-  max-width: 1440px;
+  
   height: 50px;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 #mast p {
-  flex-grow: 1;
+
   font-size: 14px;
+  flex-grow: 1;
 }
 
 .logo-text {
   font-weight: bold;
   font-size: 20px;
   padding: 0px 10px;
-}
-
-.logo {
-  padding-left:30px;
-}
-
-.github {
-  padding-right:30px;
 }
 
 #links {

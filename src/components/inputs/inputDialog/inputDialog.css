@@ -4,12 +4,12 @@
   display: flex;
   
 }
-.greyedInput {
+
+.blueInput {
   height: 40px;
-  position: relative;
-  background-color:#E5E5E5;
-  width: 200px;
-  color: #A8AAAB;
+  background-color: #05A4F7;
+  width: 230px;
+  color: white;
   display: flex;
   box-sizing: border-box;
   padding: 0 10px;
@@ -19,13 +19,24 @@
   border-bottom-left-radius: 3px
 }
 
-.greyedInput select {
-  background-color: #E5E5E5;
+.blueInput select {
+  background-color: #05A4F7;
   outline: 0px;
   font-size: 14px;
   width: 100%;
   border: none;
   font-weight: bold;
+  color: white;
+
+}
+
+.greyedInput {
+  background-color:#E5E5E5;
+  color: #A8AAAB;
+}
+
+.greyedInput select {
+  background-color: #E5E5E5;
   color: #A8AAAB;
 }
 
@@ -33,7 +44,7 @@
   
 
 #inputBox {
-  width: 500px;
+  width: 100%;
   height: 40px;
   background-color: white;
   color: #A8AAAB;

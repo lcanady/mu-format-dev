@@ -14,7 +14,7 @@ const Navigation = () => {
           <span className='logo-text'>Mu-Format </span> 
           A JavaScript Library for converting MUSHCode into something quotable.
         </p>
-        <a href={'https://github.com/lcanady/mu-format'}>
+        <a href={'https://github.com/lcanady/mu-format'} target='_blank'>
           <img src={github} className='github' alt='Github' />
         </a>
       </div>
@@ -23,7 +23,7 @@ const Navigation = () => {
 }
 
 const styles = {
-  width: '70%',
+  width: '60%',
   height: '100%',
   display: 'block',
   overflowY: 'auto'
@@ -38,11 +38,17 @@ const Links = () => (
   <nav id='links'>
     <ul>
       <li onClick={() => showModal('howItWorks')}>How It Works</li>
-      <li>Contributing</li>
-      <li>Other Projects</li>
+      <li onClick={() => showModal('contributing')}>Contributing</li>
+      <li onClick={() => showModal('projects')}>Other Projects</li>
     </ul>
     <Modal style={styles} id={'howItWorks'}>
       <Markdown src={'howItWorks.md'} />
+    </Modal>
+    <Modal style={styles} id={'contributing'}>
+      <Markdown src={'contributing.md'} />
+    </Modal>
+    <Modal style={styles} id={'projects'}>
+      <Markdown src={'projects.md'} />
     </Modal>
   </nav>
 )

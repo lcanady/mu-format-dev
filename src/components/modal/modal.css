@@ -4,6 +4,15 @@
   display: flex;
   flex-direction:column;
   margin: 0 auto;
+  font-size: 14px;
+}
+
+.modalContent::-webkit-scrollbar {
+  width: 0.7em;
+  background: transparent;
+}
+.modalContent::-webkit-scrollbar-thumb {
+  background: #E5E5E5;
 }
 
 .modalHead {
@@ -27,10 +36,6 @@
 .modalHead h1 {
   font-weight:bold;
   font-size:24px;
-}
-
-.modalBody {
-  font-size: 14px;
 }
 
 .modalBody p{

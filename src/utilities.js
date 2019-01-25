@@ -1,6 +1,6 @@
 const formatApi = async (body) => {
 
-  const rawResponse = await fetch('http://localhost:3001', {
+  const rawResponse = await fetch('https://mu-format-api.herokuapp.com', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',

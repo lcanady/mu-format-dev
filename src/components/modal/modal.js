@@ -52,15 +52,6 @@ class Modal extends Component{
         <div className='modalContent' style={this.props.style} >
           
           <div className='modalBody' ref={body => this.modalBody = body}>
-            {
-              this.props.title && 
-              <div className='modalHead'>
-                <h1>{this.props.title}</h1>
-                <i className="fas fa-exclamation-circle attn"></i>
-              </div> 
-              
-            }
-
             {this.props.children}
           </div>
 

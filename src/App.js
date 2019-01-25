@@ -6,8 +6,9 @@ import Inputs from './components/inputs/inputs'
 
 const App = () => (
   <div className="App">
-    <Navigation />
+    <div className='navBg' />
     <div id='wrapper'>
+      <Navigation />
       <Links />
       <Inputs />
     </div>

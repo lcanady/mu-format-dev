@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import Modal from '../../modal/modal'
+import ErrorModal from '../../modal/errormodal'
+import Loading from './loading'
 import InputDialog from '../inputDialog/inputDialog'
 import TextBox from '../textbox/textbox'
 import { formatApi } from '../../../utilities';
@@ -7,6 +8,9 @@ import './inputWindow.css'
 
 
 const introText = `
+#author Kumakun
+#url https://github.com/lcanady/mu-format
+
 /*
 === Welcome! ================================================================
 
@@ -102,8 +106,10 @@ class InputWindow extends Component{
   
   async handleFormat() {
     const txt = document.getElementById('inputText').innerText
-
+    const loading = document.getElementById('loading')
+    loading.style.display = 'block'
     const content = await formatApi({txt})
+    loading.style.display = 'none'
     if(content.documents){
       this.props.updateOutput({
         outputText: content.documents[0].contents
@@ -147,7 +153,7 @@ class InputWindow extends Component{
       outputText: '',
       inputText: ''
     })
-
+    
     document.getElementById('inputBox').value = ''
     document.getElementById('outputBox').value = ''
     
@@ -164,22 +170,22 @@ class InputWindow extends Component{
           <button 
             id={'formatButton'} 
             onClick={this.handleFormat} 
-            style={{width:'250px'}}
+            style={{width:'45%'}}
           >
             Format
           </button>
           <button 
             id={'clearButton'} 
             onClick={this.clear}
-            style={{width:'250px'}}
+            style={{width:'45%'}}
           >
             Clear
           </button>
         </div>  
-        
-        <Modal title={this.state.modalTitle} id={'errorModal'}>
+        <Loading />
+        <ErrorModal title={this.state.modalTitle} id={'errorModal'}>
           {this.state.modalMessage}
-        </Modal>  
+        </ErrorModal>  
 
     </div>
       
