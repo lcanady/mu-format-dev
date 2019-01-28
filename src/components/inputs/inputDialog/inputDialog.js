@@ -142,7 +142,6 @@ class InputDialog extends Component {
 
   }
 
-
   render() {
     return (
       <div id='inputDialog'>     

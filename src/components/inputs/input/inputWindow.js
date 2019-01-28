@@ -77,8 +77,6 @@ Enjoy and let me know what you think!
         footer()
     )]
 
--
-
 `.trim()
 
 
@@ -98,6 +96,20 @@ class InputWindow extends Component{
   }
 
 
+  handleKeyDown = e => {
+    if(e.key === 'f') {
+      document.getElementById('formatButton').click()
+    }
+
+    if(e.key === 'c') {
+      document.getElementById('clearButton').click()
+    }
+
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown, false)
+  }
   
   update(options) {
     this.setState(options);
@@ -155,6 +167,7 @@ class InputWindow extends Component{
     })
     
     document.getElementById('inputBox').value = ''
+    document.getElementById('inputText').innerText = ''
     document.getElementById('outputBox').value = ''
     
   }
@@ -172,14 +185,14 @@ class InputWindow extends Component{
             onClick={this.handleFormat} 
             style={{width:'45%'}}
           >
-            Format
+            <u>F</u>ormat
           </button>
           <button 
             id={'clearButton'} 
             onClick={this.clear}
             style={{width:'45%'}}
           >
-            Clear
+            <u>C</u>lear
           </button>
         </div>  
         <Loading />
