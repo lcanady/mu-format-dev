@@ -35,7 +35,7 @@ class OutputWindow extends Component {
           
           
         </div>
-        <TextBox id={'outputText'}>{this.props.output}</TextBox>
+        <TextBox id={'outputText'} contentEditable={true}>{this.props.output}</TextBox>
         <div className='inputButtons'>
           <button id='optionsButton' style={{width:'45%'}} disabled={true}>Options</button>
           <button id='formatButton' style={{width:'45%'}} disabled={true}>Log</button>
