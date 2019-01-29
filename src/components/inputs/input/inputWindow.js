@@ -94,22 +94,6 @@ class InputWindow extends Component{
     this.handleFormat = this.handleFormat.bind(this)
     this.update = this.update.bind(this)
   }
-
-
-  handleKeyDown = e => {
-    if(e.key === 'f') {
-      document.getElementById('formatButton').click()
-    }
-
-    if(e.key === 'c') {
-      document.getElementById('clearButton').click()
-    }
-
-  }
-
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown, false)
-  }
   
   update(options) {
     this.setState(options);
