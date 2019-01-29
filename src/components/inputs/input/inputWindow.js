@@ -169,14 +169,14 @@ class InputWindow extends Component{
             onClick={this.handleFormat} 
             style={{width:'45%'}}
           >
-            <u>F</u>ormat
+            Format
           </button>
           <button 
             id={'clearButton'} 
             onClick={this.clear}
             style={{width:'45%'}}
           >
-            <u>C</u>lear
+            Clear
           </button>
         </div>  
         <Loading />
